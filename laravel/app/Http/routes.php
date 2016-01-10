@@ -10,7 +10,16 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+// Authentication routes...
+Route::get('/', 'Auth\AuthController@getLogin');
+Route::post('/', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Registration routes...
+Route::get('auth/register', 'Auth\AuthController@getRegister');
+Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+
+Route::controllers([
+    'password' => 'Auth\PasswordController',
+]);

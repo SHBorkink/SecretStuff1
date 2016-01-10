@@ -13,4 +13,6 @@ var elixir = require('laravel-elixir');
 
 elixir(function(mix) {
     mix.sass('app.scss');
+    mix.copy('vendor/twbs/bootstrap', 'public/libraries/bootstrap');
+    mix.copy('components', 'public/libraries/components');
 });
